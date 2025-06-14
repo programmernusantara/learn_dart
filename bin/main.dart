@@ -60,11 +60,11 @@ void main() {
 
   // Membuat objek dari class Person
   var orang1 = Person('Wildan', 20);
-  var orang2 = Person('Aneska', 18);
+  var lulus = Lulus(name, age, 2025);
 
   // Memanggil method introduce()
   orang1.introduce();
-  orang2.introduce();
+  lulus.describe(); // dari Lulus
 
   // Contoh: pilih planet
   Planet planetKamu = Planet.earth;
@@ -79,17 +79,30 @@ void main() {
 
 //untuk membuat Comments / keterangan gunakan ini //
 
-// Ini class-nya
+// Class induk (Parent Class)
 class Person {
   String name;
   int age;
 
-  // Constructor: cara membuat objek Person
+  // Constructor untuk class Person
   Person(this.name, this.age);
 
-  // Method: fungsi untuk memperkenalkan diri
+  // Method untuk memperkenalkan diri
   void introduce() {
     print('Halo, nama saya $name dan saya berumur $age tahun.');
+  }
+}
+
+// Class turunan (Child Class) dari Person
+class Lulus extends Person {
+  int tahunLulus;
+
+  // Constructor Lulus menerima name, age, dan tahunLulus
+  Lulus(super.name, super.age, this.tahunLulus);
+
+  // Method untuk menampilkan informasi kelulusan
+  void describe() {
+    print('Saya lulus pada tahun $tahunLulus.');
   }
 }
 
