@@ -1,3 +1,6 @@
+//"Daripada saya nulis ulang class Person di main.dart, lebih baik saya import dari file lain agar rapi dan bisa dipakai berulang."
+//import 'package:test/test.dart';
+
 void main() {
   // Bagian 1: Menampilkan ucapan selamat datang
   print('Hello World!');
@@ -45,4 +48,37 @@ void main() {
     simulatedYear++;
   }
   print('Tahun $simulatedYear, usia telah mencapai $simulatedAge tahun.');
+
+  //Functions
+  int fibonacci(int n) {
+    if (n == 0 || n == 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+  }
+
+  var result = fibonacci(5);
+  print('Hasil fibonacci(5) adalah: $result');
+
+  // Membuat objek dari class Person
+  var orang1 = Person('Wildan', 20);
+  var orang2 = Person('Aneska', 18);
+
+  // Memanggil method introduce()
+  orang1.introduce();
+  orang2.introduce();
+}
+
+//untuk membuat Comments / keterangan gunakan ini //
+
+// Ini class-nya
+class Person {
+  String name;
+  int age;
+
+  // Constructor: cara membuat objek Person
+  Person(this.name, this.age);
+
+  // Method: fungsi untuk memperkenalkan diri
+  void introduce() {
+    print('Halo, nama saya $name dan saya berumur $age tahun.');
+  }
 }
