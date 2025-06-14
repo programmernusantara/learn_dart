@@ -65,6 +65,16 @@ void main() {
   // Memanggil method introduce()
   orang1.introduce();
   orang2.introduce();
+
+  // Contoh: pilih planet
+  Planet planetKamu = Planet.earth;
+
+  // Cetak informasi
+  print("Nama planet: ${planetKamu.name}");
+  print("Jenis: ${planetKamu.type}");
+  print("Jumlah bulan: ${planetKamu.moons}");
+  print("Punya cincin: ${planetKamu.hasRings}");
+  print("Termasuk planet raksasa? ${planetKamu.isGiant ? 'Ya' : 'Tidak'}");
 }
 
 //untuk membuat Comments / keterangan gunakan ini //
@@ -81,4 +91,38 @@ class Person {
   void introduce() {
     print('Halo, nama saya $name dan saya berumur $age tahun.');
   }
+}
+
+// Enum untuk jenis planet
+enum PlanetType {
+  terrestrial, // planet berbatu seperti Bumi, Mars
+  gas, // planet gas seperti Jupiter, Saturnus
+  ice, // planet es seperti Uranus, Neptunus
+}
+
+// Enum untuk daftar planet lengkap beserta datanya
+enum Planet {
+  mercury(type: PlanetType.terrestrial, moons: 0, hasRings: false),
+  venus(type: PlanetType.terrestrial, moons: 0, hasRings: false),
+  earth(type: PlanetType.terrestrial, moons: 1, hasRings: false),
+  mars(type: PlanetType.terrestrial, moons: 2, hasRings: false),
+  jupiter(type: PlanetType.gas, moons: 79, hasRings: true),
+  saturn(type: PlanetType.gas, moons: 83, hasRings: true),
+  uranus(type: PlanetType.ice, moons: 27, hasRings: true),
+  neptune(type: PlanetType.ice, moons: 14, hasRings: true);
+
+  // Constructor tetap
+  const Planet({
+    required this.type,
+    required this.moons,
+    required this.hasRings,
+  });
+
+  // Properti milik setiap planet
+  final PlanetType type; // jenis planet
+  final int moons; // jumlah bulan
+  final bool hasRings; // punya cincin atau tidak
+
+  // Getter untuk menentukan apakah planet ini planet raksasa
+  bool get isGiant => type == PlanetType.gas || type == PlanetType.ice;
 }
