@@ -1,7 +1,9 @@
+//Introduction to Dart
+
 //"Daripada saya nulis ulang class Person di main.dart, lebih baik saya import dari file lain agar rapi dan bisa dipakai berulang."
 //import 'package:test/test.dart';
 
-void main() {
+void main() async {
   // Bagian 1: Menampilkan ucapan selamat datang
   print('Hello World!');
 
@@ -75,6 +77,9 @@ void main() {
   print("Jumlah bulan: ${planetKamu.moons}");
   print("Punya cincin: ${planetKamu.hasRings}");
   print("Termasuk planet raksasa? ${planetKamu.isGiant ? 'Ya' : 'Tidak'}");
+
+  await belajar("Dart");
+  await belajar("Flutter");
 }
 
 //untuk membuat Comments / keterangan gunakan ini //
@@ -138,4 +143,11 @@ enum Planet {
 
   // Getter untuk menentukan apakah planet ini planet raksasa
   bool get isGiant => type == PlanetType.gas || type == PlanetType.ice;
+}
+
+//Async
+Future<void> belajar(String nama) async {
+  print("Mulai belajar $nama");
+  await Future.delayed(Duration(seconds: 2));
+  print("Selesai belajar $nama");
 }
