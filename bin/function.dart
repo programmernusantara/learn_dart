@@ -1,15 +1,21 @@
-//Deklarasi Function
+//Devauld Function
 void hello() {
   print('Hello Word!');
 }
 
 //Parameter Function
-void hai(String name) {
+void person(String name) {
   print('Hai, $name');
+}
+
+//Return value function
+int add(int a, int b) {
+  return a + b;
 }
 
 //
 void main() {
   hello();
-  hai('Wildan');
+  person('Wildan');
+  print(add(10, 10));
 }
