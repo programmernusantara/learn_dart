@@ -1,1 +1,1 @@
-Sample code belajar bahasa pemogramn dart : Fremwork (Flutter + Serverpod)
+Sample code belajar bahasa pemograman dart : Fremwork (Flutter + Serverpod)
