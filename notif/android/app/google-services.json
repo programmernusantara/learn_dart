@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "276499509152",
+    "project_id": "nusa-f38ea",
+    "storage_bucket": "nusa-f38ea.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276499509152:android:907eff28f81f34c0e43ec5",
+        "android_client_info": {
+          "package_name": "com.example.nusa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKmQ2zz6w-Ox0127d9cNeg86J37_ofCBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
