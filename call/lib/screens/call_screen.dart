@@ -45,7 +45,7 @@ class _CallScreenState extends State<CallScreen> {
 
     return LivekitRoom(
       roomContext: RoomContext(
-        url: 'ws://127.0.0.1:7880', // IP Server LiveKit
+        url: 'ws://192.168.1.11:7880', // IP Server LiveKit
         token: _token!,
         connect: true,
         onDisconnected: () {

@@ -55,30 +55,44 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  // screens/home_screen.dart - Bagian yang diperbaiki
+
   void _startCall(RecordModel target) async {
     final roomName = "room_${AuthService.currentUser!.id}_${target.id}";
+
+    // 1. Buat record dengan status 'dialing'
     final record = await CallService.startCallRecord(target.id, roomName);
 
-    // Pantau apakah dia menerima
+    // 2. Pantau perubahan status (Watch)
     CallService.watchCallStatus(record.id, (status) {
+      // Jika User B menekan 'Terima', status berubah jadi 'active'
       if (status == 'active') {
-        CallService.stop(record.id);
+        // ⚠️ JANGAN panggil stop() di sini karena CallScreen butuh memantau status 'ended'
         _openCall(roomName);
-      } else if (status == 'rejected') {
+      } else if (status == 'rejected' || status == 'ended') {
         CallService.stop(record.id);
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Ditolak")));
+        if (mounted) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text("Panggilan $status")));
+        }
       }
     });
   }
 
   void _openCall(String room) {
-    Navigator.push(context, MaterialPageRoute(builder: (_) => CallScreen(roomName: room)));
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => CallScreen(roomName: room)),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Video Call App")),
+      appBar: AppBar(title: const Text("Video Call App"),
+      centerTitle: true,
+      ),
       body: ListView.builder(
         itemCount: users.length,
         itemBuilder: (ctx, i) => ListTile(

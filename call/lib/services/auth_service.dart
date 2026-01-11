@@ -16,7 +16,7 @@ class AuthService {
     );
 
     // Ganti URL ini dengan IP server PocketBase Anda
-    pb = PocketBase('http://127.0.0.1:8090', authStore: store);
+    pb = PocketBase('http://192.168.1.11:8090', authStore: store);
   }
 
   // Cek apakah user sudah login
