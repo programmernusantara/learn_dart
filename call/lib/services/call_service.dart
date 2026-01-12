@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:pocketbase/pocketbase.dart';
 import 'auth_service.dart';
@@ -70,7 +71,9 @@ class CallService {
       }
       return null;
     } catch (e) {
-      print("Network Error: $e");
+      if (kDebugMode) {
+        print("Network Error: $e");
+      }
       return null;
     }
   }
